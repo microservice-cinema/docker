@@ -15,8 +15,21 @@ services:
     networks:
       - microservice-cinema
 
+  redis:
+    container_name: redis
+    image: redis:6.2
+    restart: always
+    ports:
+      - 6380:6379
+    command: redis-server --requirepass ${REDIS_PASSWORD}
+    volumes:
+      - redis_data:/data
+    networks:
+      - microservice-cinema
+
 volumes:
   postgres_data:
+  redis_data:
 
 networks:
   microservice-cinema:
