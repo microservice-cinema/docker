@@ -1,0 +1,2 @@
+CREATE DATABASE microservice_cinema_auth;
+CREATE DATABASE microservice_cinema_users;
