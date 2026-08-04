@@ -1,5 +1,7 @@
 version: '3.9'
 
+name: microservice-cinema
+
 services:
   postgres:
     container_name: postgres
@@ -29,8 +31,8 @@ services:
       - microservice-cinema
 
   rabbitmq:
-    image: rabbitmq:3-management
     container_name: rabbitmq
+    image: rabbitmq:3-management
     restart: always
     ports:
       - 5672:5672
