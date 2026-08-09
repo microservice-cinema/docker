@@ -103,10 +103,24 @@ services:
     networks:
       - microservice-cinema
 
+  grafana:
+    container_name: grafana
+    image: grafana/grafana:10.2.3
+    restart: unless-stopped
+    ports:
+      - '3002:3000'
+    volumes:
+      - grafana-storage:/var/lib/grafana
+    depends_on:
+      - prometheus
+    networks:
+      - microservice-cinema
+
 volumes:
   postgres_data:
   redis_data:
   rabbitmq_data:
+  grafana-storage:
 
 networks:
   microservice-cinema:
